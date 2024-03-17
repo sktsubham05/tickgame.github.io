@@ -1,0 +1,1005 @@
+<html>
+<head>
+	<link rel="stylesheet" href="my.css">
+</head>
+<body onload="hide()">
+
+	<main>
+		<div class="t1"><h1><u>Tic Tac Toe Game</u></h1></div>
+		<div id="t2">
+			<label class="pl" style=" font-size:20;">Player 1</label>
+			<input type="text" id="txt"></input><br><br>
+			<label class="pl" style="font-size:20;">Player 2</label>
+			<input type="text" id="txt1"></input><br>
+			<button id="start" onclick="on()">Game Start</button>
+			<label id="play"></label>
+		</div>
+		<div id="tt3" class="t3"><label id="l1"></label><button class="b1" id="c1" onclick="fb()"></button></div>
+		<div id="tt4" class="t4"><label id="l2"></label><button class="b1" id="c2" onclick="fb1()"></button></div>
+		<div id="tt5" class="t5"><label id="l3"></label><button class="b1" id="c3" onclick="fb2()"></button></div>
+		<div id="tt6" class="t6"><label id="l4"></label><button class="b1" id="c4" onclick="fb3()"></button></div>
+		<div id="tt7" class="t7"><label id="l5"></label><button class="b1" id="c5" onclick="fb4()"></button></div>
+		<div id="tt8" class="t8"><label id="l6"></label><button class="b1" id="c6" onclick="fb5()"></button></div>
+		<div id="tt9" class="t9"><label id="l7"></label><button class="b1" id="c7" onclick="fb6()"></button></div>
+		<div id="tt10" class="t10"><label id="l8"></label><button class="b1" id="c8" onclick="fb7()"></button></div>
+		<div id="tt11" class="t11"><label id="l9"></label><button class="b1" id="c9" onclick="fb8()"></button></div>
+		<div class="t12">
+			<label id="name"></label><br>
+			<label id="name1"></label>
+			<label id="p1"></label><br>
+			<label id="p2"></label>
+		</div>
+		<div class="t13">
+			<a href="file:///C:/Users/Subham%20Kumar/OneDrive/Desktop/My%20Html/practise/myprog.html">
+				<button class="restart">Restart the Game</button>
+			</a>
+			<label id="Player"></label>
+			<label id="next">
+			<button onclick="round1()" style="margin-left:1100px;  width:400px; font-size:40; margin-top:-30px;">Next Round
+			</button>
+			</label>
+		</div>
+	
+	</main>
+</body>
+<script>
+	var flag=1;
+	var temp=0;
+	var ctr=0;
+	var l=0;
+	var k=0;
+	var j=0;
+	var i=0;
+	var v=0;
+	var c=0;
+	var n=0;
+	var q1=0;
+	var x=0;
+	function hide()
+	{
+		if(k==0)
+		{
+			for(i=1;i<=9;i++)
+			{
+				document.getElementById("tt"+(i+2)).style.display="none";
+				document.getElementById("l"+i).style.display="none";
+			}
+			document.getElementById("next").style.display="none";
+		}
+	}
+	function round1()
+	{
+		document.getElementById("name").style.display="none";
+		for(i=1;i<=9;i++)
+		{
+			document.getElementById("l"+i).style.display="none";
+			document.getElementById("c"+i).style.display="block";
+		}
+		flag=1;
+		temp=0;
+		ctr=0;
+		l=0;
+		k=1;
+		j=0;
+		i=0;
+		n=0;
+		q1=1;
+		a="";
+		for(i=1;i<=9;i++)
+		{
+			document.getElementById("l"+i).innerHTML=a;
+		}
+		document.getElementById("Player").innerHTML=a;
+		document.getElementById("Player").innerHTML=z+" turn";
+		
+	}
+	
+	
+	function on()
+	{
+		if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				j=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		else
+		{
+			window.alert("enter the both name first");
+		}
+		if(j==1)
+		{
+			k=1;
+			z=document.getElementById("txt").value;
+			x=document.getElementById("txt1").value;
+			document.getElementById("play").innerHTML="Lets Play!";
+	
+			for(i=1;i<=9;i++)
+			{
+				document.getElementById("tt"+(i+2)).style.display="grid";
+				document.getElementById("l"+i).style.display="grid";
+			}
+			document.getElementById("t2").style.display="none";
+		}
+		if(k==1)
+		{
+			
+			document.getElementById("Player").innerHTML=z+"Turn";
+		}
+		if(temp==1)
+		{
+			window.alert("Click on Restart button");
+		}
+		
+	}
+	
+	function fb()
+	{	
+		document.getElementById("l1").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c1").style.display="none";
+			if(flag==1)
+			{	
+				z=document.getElementById("txt").value;
+				document.getElementById("l1").innerHTML="X";
+				flag=0;
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l1").innerHTML="O";
+				flag=1;
+			
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l2").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l3").innerHTML))
+			{
+				l++;
+				temp=1;
+			}
+		
+			if((document.getElementById("l1").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l9").innerHTML))
+			{
+				l++;
+				temp=1;
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l4").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				l++;
+				temp=1;
+			}
+		
+			if(temp==1)
+			{
+				document.getElementById("play").style.display="none";
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+			 		document.getElementById("name").innerHTML=z+" Win!";
+					
+					
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+" Win!";
+
+				}
+				
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		
+		
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(k==1)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+		
+	}
+	function fb1()
+	{	
+		document.getElementById("l2").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c2").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l2").innerHTML='X';
+				flag=0;
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l2").innerHTML="O";
+				flag=1;
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l2").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l3").innerHTML))
+			{
+				l++;
+				temp=1;
+				
+			}
+			if((document.getElementById("l2").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l2").innerHTML==document.getElementById("l8").innerHTML))
+			{
+				l++;
+				temp=1;
+			}
+			if(temp==1)
+			{
+				if(flag==0)
+				{
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+				
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(l==0)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+	}
+	function fb2()
+	{
+		document.getElementById("l3").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c3").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l3").innerHTML='X';
+				flag=0;
+				
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l3").innerHTML="O";
+				flag=1;
+				
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l2").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l3").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l3").innerHTML==document.getElementById("l6").innerHTML) && (document.getElementById("l3").innerHTML==document.getElementById("l9").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+		
+			if((document.getElementById("l3").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l3").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if(temp==1)
+			{
+				if(flag==0)
+				{
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+		
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(l==0)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+		
+	}
+	function fb3()
+	{
+		document.getElementById("l4").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c4").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l4").innerHTML='X';
+				flag=0;
+			
+			}
+			else
+			{	
+				x=document.getElementById("txt1").value;
+				document.getElementById("l4").innerHTML="O";
+				flag=1;
+				
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l4").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l6").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l6").innerHTML==document.getElementById("l4").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if(temp==1)
+			{	
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(l==0)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+		
+	}
+	function fb4()
+	{
+		document.getElementById("l5").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0  && k==1)
+		{
+			ctr++;
+			document.getElementById("c5").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l5").innerHTML='X';
+				flag=0;
+				
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l5").innerHTML="O";
+				flag=1;
+				
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l9").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l2").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l2").innerHTML==document.getElementById("l8").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l3").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l3").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l6").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l6").innerHTML==document.getElementById("l4").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if(temp==1)
+			{
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(l==0)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+		
+	}
+	function fb5()
+	{	
+		document.getElementById("l6").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c6").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l6").innerHTML='X';
+				flag=0;
+				
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l6").innerHTML="O";
+				flag=1;
+			
+			}
+			if((document.getElementById("l3").innerHTML==document.getElementById("l6").innerHTML) && (document.getElementById("l3").innerHTML==document.getElementById("l9").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l6").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l6").innerHTML==document.getElementById("l4").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if(temp==1)
+			{
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(l==0)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+	}
+	function fb6()
+	{
+		document.getElementById("l7").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c7").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l7").innerHTML='X';
+				flag=0;
+			
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l7").innerHTML="O";
+				flag=1;
+			
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l4").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l3").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l3").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l9").innerHTML==document.getElementById("l8").innerHTML) && (document.getElementById("l9").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if(temp==1)
+			{
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(k==1)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+	}
+	function fb7()
+	{
+		document.getElementById("l8").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		else if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c8").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l8").innerHTML='X';
+				flag=0;
+			
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l8").innerHTML="O";
+				flag=1;
+				
+			}
+			if((document.getElementById("l2").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l2").innerHTML==document.getElementById("l8").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l9").innerHTML==document.getElementById("l8").innerHTML) && (document.getElementById("l9").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if(temp==1)
+			{
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(k==1)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+	}
+	function fb8()
+	{
+		document.getElementById("l9").style.display="block";
+		if(document.getElementById("txt").value=="" || document.getElementById("txt1").value=="")
+		{
+			window.alert("enter the both name first");
+		}
+		else if(document.getElementById("txt").value!="" && document.getElementById("txt1").value!="")
+		{
+			if(document.getElementById("txt").value!=document.getElementById("txt1").value)
+			{
+				i=1;
+			}
+			else
+			{
+				window.alert("Player 1 & player 2 name should be different");
+			}
+		}
+		if(i==1 && k==0)
+		{
+			window.alert("click on Start button");
+		}
+		if(l==0 && k==1)
+		{
+			ctr++;
+			document.getElementById("c9").style.display="none";
+			if(flag==1)
+			{
+				z=document.getElementById("txt").value;
+				document.getElementById("l9").innerHTML='X';
+				flag=0;
+				
+			}
+			else
+			{
+				x=document.getElementById("txt1").value;
+				document.getElementById("l9").innerHTML="O";
+				flag=1;
+			}
+			if((document.getElementById("l3").innerHTML==document.getElementById("l6").innerHTML) && (document.getElementById("l3").innerHTML==document.getElementById("l9").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l9").innerHTML==document.getElementById("l8").innerHTML) && (document.getElementById("l9").innerHTML==document.getElementById("l7").innerHTML))
+			{
+				temp=1;
+				l++;
+			}
+			if((document.getElementById("l1").innerHTML==document.getElementById("l5").innerHTML) && (document.getElementById("l1").innerHTML==document.getElementById("l9").innerHTML))
+			{
+				l++;
+				temp=1;
+			}
+			if(temp==1)
+			{	
+				if(flag==0)
+				{	
+					v++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=z+"Win!";
+				}
+				else
+				{
+					c++;
+					document.getElementById("next").style.display="block";
+					document.getElementById("name").style.display="block";
+					document.getElementById("name").innerHTML=x+"Win!";
+				}
+			}
+			if(ctr==9 && temp==0)
+			{
+				document.getElementById("next").style.display="block";
+				window.alert("Draw!");
+			}
+		}
+		else if(l==1)
+		{
+			window.alert("click on Next Round Button");
+		}
+		if(k==1)
+		{
+			if(flag==0)
+			{
+				document.getElementById("Player").innerHTML=x+"Turn!";
+			}
+			else
+			{
+				document.getElementById("Player").innerHTML=z+"Turn!";
+			}
+		}
+		document.getElementById("p1").innerHTML=z+" Point="+v;
+		document.getElementById("p2").innerHTML=x+" Point="+c;
+	}
+</script>
+</html>
